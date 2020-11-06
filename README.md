@@ -31,6 +31,7 @@ SuiteCRM was very responsive throughout the reporting process. They acknowledged
 05 NOV 2020 <- SuiteCRM replies 
 > Now we have released a patch for this issue and it is in the pubic domain, there is no problem with you doing a blog post on the vulnerabilities from our perspective.
 ## POC
-These aren't too tough to figure out, so I'll leave scripting it as an exercise for the reader... ;) They are also pretty easy to just perform through the web interface...
+These aren't too tough to figure out, so I'll leave scripting it as an exercise for the reader... ;) They are also pretty easy to just perform through the web interface...  
+![](SuiteCRM-PoC.gif)
 ## Thanks to SuiteCRM!
 They were very easy to work with and I definitely plan to continue searching for and reporting vulnerabilities in this software!
