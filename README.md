@@ -1,4 +1,4 @@
-# SuiteCRM Remote Code Execution via Log File System Setting and Log File Poisioning
+# CVE-2020-28328 SuiteCRM Remote Code Execution via Log File System Setting and Log File Poisioning
 #### Overview
 I recently discovered two vulnerabilities in [SuiteCRM](https://github.com/salesagility/SuiteCRM) that provides an attack chain for a low privileged user to achieve code execution on the underlying operating system. The attack chain is Cross-Site Scripting, which can be used to perform Cross-Site Request Forgery, which leads to Remote Code Execution by tampering with the application configuration and poisioning a log file. This is all achieved via a file upload that contains malicious JavaScript that a low privileged user can trick a user with administrative privileges into running. The Proof-Of-Concept files and video I have attached demonstrates a low privileged user performing this attack and obtaining areverse shell on the system that is hosting SuiteCRM.  
 [This was patched in version 7.11.17 of SuiteCRM.](https://suitecrm.com/suitecrm-7-11-17-7-10-28-lts-versions-released/)
@@ -31,6 +31,8 @@ SuiteCRM was very responsive throughout the reporting process. They acknowledged
 03 NOV 2020 -> I contact security@suitecrm.com to ensure nothing else is needed on their end before releasing writeup  
 05 NOV 2020 <- SuiteCRM replies 
 > Now we have released a patch for this issue and it is in the pubic domain, there is no problem with you doing a blog post on the vulnerabilities from our perspective.
+05 NOV 2020 -> CVE requested by me
+06 NOV 2020 <- [CVE-2020-28328](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28328) issued.
 ## POC
 These aren't too tough to figure out, so I'll leave scripting it as an exercise for the reader... ;) They are also pretty easy to just perform through the web interface...  
 ![](SuiteCRM-PoC.gif)
