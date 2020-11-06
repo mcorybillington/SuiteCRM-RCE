@@ -15,7 +15,8 @@ I was able to perform all this as the admin user because I was able to obtain se
 #### Cross-Site Scripting
 Ensure you have `AllowOveride All` set in Apache. nginx does not have this setting and I did not test it on nginx.
 #### Remote Code Execution
-Update to the latest release of SuiteCRM, or at least version 7.11.17.
+Update to the latest release of SuiteCRM, or at least version 7.11.17.  
+This is the specific fix. Commit [1618af16eaa494c4551bac961e5ac8fc3d87ab8c](https://github.com/salesagility/SuiteCRM/commit/1618af16eaa494c4551bac961e5ac8fc3d87ab8c#diff-e9704a2002d127cd455e1eb0507042080bb79d362091e770803ff69a31139d0f)
 ## Reporting to SuiteCRM
 SuiteCRM was very responsive throughout the reporting process. They acknowledged the RCE, which was patched. The XSS was the result of a web server configuration so they did not acknowlede it as a vulnerability. They did, however, note that they would be updating the documentation in light of this.
 #### Timeline
