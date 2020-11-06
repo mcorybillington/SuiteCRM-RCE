@@ -30,9 +30,10 @@ SuiteCRM was very responsive throughout the reporting process. They acknowledged
 29 OCT 2020 Update released  
 03 NOV 2020 -> I contact security@suitecrm.com to ensure nothing else is needed on their end before releasing writeup  
 05 NOV 2020 <- SuiteCRM replies 
-> Now we have released a patch for this issue and it is in the pubic domain, there is no problem with you doing a blog post on the vulnerabilities from our perspective.
-05 NOV 2020 -> CVE requested by me
-06 NOV 2020 <- [CVE-2020-28328](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28328) issued.
+> Now we have released a patch for this issue and it is in the pubic domain, there is no problem with you doing a blog post on the vulnerabilities from our perspective. 
+
+05 NOV 2020 -> CVE requested by me  
+06 NOV 2020 <- [CVE-2020-28328](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28328) issued  
 ## POC
 These aren't too tough to figure out, so I'll leave scripting it as an exercise for the reader... ;) They are also pretty easy to just perform through the web interface...  
 ![](SuiteCRM-PoC.gif)
