@@ -1,8 +1,13 @@
-# [CVE-2020-28328] SuiteCRM Remote Code Execution via Log File System Setting and Log File Poisioning
-#### Overview
+# CVE-2020-28328 SuiteCRM Remote Code Execution via Log File System Setting and Log File Poisioning
+## Overview
 I recently discovered two vulnerabilities in [SuiteCRM](https://github.com/salesagility/SuiteCRM) that provides an attack chain for a low privileged user to achieve code execution on the underlying operating system. The attack chain is Cross-Site Scripting, which can be used to perform Cross-Site Request Forgery, which leads to Remote Code Execution by tampering with the application configuration and poisioning a log file. This is all achieved via a file upload that contains malicious JavaScript that a low privileged user can trick a user with administrative privileges into running. The Proof-Of-Concept files and video I have attached demonstrates a low privileged user performing this attack and obtaining areverse shell on the system that is hosting SuiteCRM.  
 [This was patched in version 7.11.17 of SuiteCRM.](https://suitecrm.com/suitecrm-7-11-17-7-10-28-lts-versions-released/)
-#### Version details
+## Severity
+[CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H](https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H)  
+I don't fully agree with this rating as the exploit does require administrative access which would change PR:L to PR:H, adjusting the final score from an 8.8 to a 7.2.  
+I would rate it as: [CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H](https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H)  
+Ref: https://nvd.nist.gov/vuln/detail/CVE-2020-28328
+## Version details
 SuiteCRM Version 7.11.15
 ## Cross-Site Scripting (XSS)
 The stored Cross-Site Scripting exists in the 'Create Documents' file upload. A low privileged user is able to upload a file with any contents. The user can then examine the link provided to download this document and ascertain the file's location on the filesystem by locating the `id` parameter. This long, random value is the name of the fileinside the /uploads/ directory. The user can place arbitrary JavaScript in this file and then send the link to another user. This can be used to hijack another user's session and/or perform actions on that user's behalf, which will be shown in the PoC video.
